@@ -13,18 +13,26 @@ PROMPT_HISTORY_COLUMNS = ['name', 'timestamp', 'prompt']
 def set_theme():
     st.markdown("""
     <style>
-    /* Modern dark theme inspired by shadcn */
-    :root {
-        --background: #09090B;
-        --foreground: #FAFAFA;
-        --muted: #27272A;
-        --muted-foreground: #A1A1AA;
-        --popover: #18181B;
-        --border: #27272A;
-        --input: #27272A;
-        --primary: #FAFAFA;
-        --secondary: #27272A;
+    /* ... your existing root and base styles ... */
+
+    /* Target the actual text inside inputs and text areas */
+    input, textarea {
+        color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
     }
+
+    /* Target Streamlit-specific labels and values */
+    .stTextInput input, .stTextArea textarea {
+        color: #FFFFFF !important;
+    }
+
+    /* Optional: Ensure the placeholder text is still readable (muted gray) */
+    input::placeholder, textarea::placeholder {
+        color: #A1A1AA !important;
+        -webkit-text-fill-color: #A1A1AA !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
     .stApp {
         background-color: var(--background);
